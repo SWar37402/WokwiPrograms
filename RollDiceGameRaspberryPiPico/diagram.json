@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "author": "Swarnim",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -12.75,
+      "left": -25.2,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 75.5, "left": 172.6, "attrs": {} },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -71.82,
+      "left": -177.32,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg2",
+      "top": 91.38,
+      "left": -244.52,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -156.8,
+      "left": 130.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "pot1:VCC", "pico:3V3", "red", [ "v19.2", "h-96.8", "v-19.2" ] ],
+    [ "sevseg1:A", "pico:GP0", "green", [ "v-37.56", "h67.2", "v86.4" ] ],
+    [ "sevseg1:B", "pico:GP1", "green", [ "v-27.96", "h48", "v9.6" ] ],
+    [ "sevseg1:C", "pico:GP2", "green", [ "v0" ] ],
+    [ "sevseg1:D", "pico:GP3", "green", [ "v0" ] ],
+    [ "sevseg1:E", "pico:GP4", "green", [ "v0" ] ],
+    [ "sevseg1:F", "pico:GP5", "green", [ "v-27.96", "h-19.2", "v153.6" ] ],
+    [ "sevseg1:COM.1", "pico:GND.1", "black", [ "h19.2", "v19.2" ] ],
+    [ "sevseg1:G", "pico:GP6", "green", [ "v-18.36", "h-19.2", "v153.6" ] ],
+    [ "sevseg2:A", "pico:GP7", "green", [ "v0" ] ],
+    [ "sevseg2:B", "pico:GP8", "green", [ "v0" ] ],
+    [ "sevseg2:C", "pico:GP9", "green", [ "v9.6", "h19.2", "v-67.2" ] ],
+    [ "sevseg2:D", "pico:GP10", "green", [ "v19.2", "h48", "v-57.6" ] ],
+    [ "sevseg2:E", "pico:GP11", "green", [ "v28.8", "h67.2", "v-57.6" ] ],
+    [ "sevseg2:F", "pico:GP12", "green", [ "v-18.36", "h-19.2", "v124.8", "h86.4", "v-57.6" ] ],
+    [ "sevseg2:G", "pico:GP13", "green", [ "v-8.76", "h-19.2", "v124.8", "h105.6", "v-57.6" ] ],
+    [ "sevseg2:COM.1", "pico:GND.3", "black", [ "h0", "v9.6", "h76.8", "v-57.6" ] ],
+    [ "pico:GND.7", "pot1:GND", "black", [ "h49.2", "v124.8", "h105.6" ] ],
+    [ "pico:GP26", "pot1:SIG", "green", [ "h87.6", "v86.4", "h76.8" ] ],
+    [ "lcd1:GND", "pico:GND.8", "black", [ "h-57.6", "v153.6" ] ],
+    [ "lcd1:VCC", "pico:3V3", "red", [ "h-38.4", "v144.1", "h-28.8", "v9.6" ] ],
+    [ "lcd1:SDA", "pico:GP20", "green", [ "h-28.8", "v249.8" ] ],
+    [ "lcd1:SCL", "pico:GP21", "green", [ "h-19.2", "v221.1", "h-9.6" ] ]
+  ],
+  "dependencies": {}
+}
